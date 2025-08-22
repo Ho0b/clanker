@@ -1,0 +1,41 @@
+*{
+  font-family: monospace;
+}
+
+body{
+  background-color: rgb(03, 03, 03);
+  margin: 0;
+  padding: 0;
+}
+
+input{
+  background: #050505;
+  color: white;
+  border: 0 solid transparent;
+  border-radius: 2rem;
+  width: 90%;
+  max-width: 512px;
+  height: 48px;
+  padding: 0;
+  text-align: center;
+  outline-width: 0;
+  outline-color: transparent;
+  outline-style: solid;
+  transition-duration: .25s;
+  transition-property: outline-width, outline-color, outline-style;
+
+  &:focus{
+    outline-width: .25rem;
+    outline-color: #ccc;
+    outline-style: outset;
+  }
+
+}
+
+#inputContainer{
+  position: absolute;
+  bottom: 32px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
