@@ -1,32 +1,80 @@
 *{
-  font-family: monospace;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+:root{
+  
+  --priCol: #030303;
+  --secCol: #f2f3b6;
+
+  color-scheme: light dark;
+
+  transition: background-color 1s;
+}
+
+.light{
+  --priCol: #f2f3b6;
+  --secCol: #030303;
+  background-color: light-dark(#030303, #f2f3b6);
+}
+
+nav{
+  color: var(--secCol);
+  gap: 16px;
+  margin-top: 16px;
+  display: flex;
+  width: 90%;
+  max-width: 768px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 body{
-  background-color: rgb(03, 03, 03);
+  background-color: light-dark(#f2f3b6,#030303);
   margin: 0;
+  padding: 0;
+  height: 1080px;
+  overflow: hidden;
+}
+
+canvas{
+  height: inherit;
+  width: inherit;
+}
+
+form{
+  width: 90%;
+  max-width: 768px;
+  height: 48px;
   padding: 0;
 }
 
+h1{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 2rem;
+}
+
 input{
-  background: #050505;
-  color: white;
+  background: var(--secCol);
+  color: var(--priCol);
   border: 0 solid transparent;
   border-radius: 2rem;
-  width: 90%;
-  max-width: 512px;
-  height: 48px;
-  padding: 0;
+  width: 100%;
+  height: inherit;
   text-align: center;
   outline-width: 0;
   outline-color: transparent;
   outline-style: solid;
-  transition-duration: .25s;
+  transition-duration: .2s;
   transition-property: outline-width, outline-color, outline-style;
 
   &:focus{
-    outline-width: .25rem;
-    outline-color: #ccc;
+    outline-width: .2rem;
+    outline-color: white;
     outline-style: outset;
   }
 
@@ -39,3 +87,40 @@ input{
   justify-content: center;
   width: 100%;
 }
+
+#themeButton{
+  --drop_color: #fff;
+
+  content: none;
+  border: none;
+  border-radius: 0;
+  height: 48px;
+  width: 48px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  image-rendering: pixelated;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  transition: filter .25s, transform .5s ease-out;
+  opacity: 1;
+  transform: rotateZ(0deg) scale(1);
+
+  &:hover{
+    filter: drop-shadow(0 0 .5rem var(--drop_color));
+    transform: scale(1.5);
+  }
+
+  &.sun{
+    --drop_color: #030303;
+    background-image: url(/public/sun.png);
+    transform: rotateZ(360deg);
+  }
+  &.moon{
+    --drop_color: #f2f3b6;
+    background-image: url(/public/moon.png);
+    transform: rotateZ(0deg);
+  }
+}
+
