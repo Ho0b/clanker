@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import { motion } from "motion/react"
-import { easeTransition } from "./App"
+import { easeTransition, easeTransition2 } from "./App"
 
 
 
@@ -20,9 +20,9 @@ function NavBar(){
         setClicked(!isClicked)
     }
     return(
-        <motion.nav initial={{y:-48, opacity:0}} animate={{y:0, opacity:1}} transition={easeTransition}>
-        <span><h1>CLANKER INSULTER</h1></span>
-        <span><button ref={themeButton} aria-label="toggle theme" id="themeButton" className="moon" onClick={handleButton}></button></span>
+        <motion.nav>
+        <motion.span initial={{y:-128, opacity:0}} animate={{y:0, opacity:1}} transition={easeTransition}><h1>CLANKER INSULTER</h1></motion.span>
+        <motion.span initial={{y:-128, opacity:0}} animate={{y:0, opacity:1}} transition={easeTransition2}><button ref={themeButton} aria-label="toggle theme" id="themeButton" className="moon" onClick={handleButton}></button></motion.span>
         </motion.nav>
     )
 }
